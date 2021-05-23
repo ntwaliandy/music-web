@@ -1,0 +1,20 @@
+<html>
+{% load static %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+    </head>
+    <body>
+        <h1>ALL THE ALBUMS HERE!</h1>
+        {% if all_albums %}
+        <ul>
+            {% for album in all_albums %}
+            <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h2>There is no any available Album yet!</h2>
+        {% endif %}
+
+        <h3>Designed By ANDYEVENTS</h3>
+    </body>
+</html>
